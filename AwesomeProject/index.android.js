@@ -7,7 +7,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, StyleSheet, Text, View, Image} from 'react-native';
 
-// 1.Hello World
+/* 1.Hello World */
 
 class AwesomeProject extends Component {
   render() {
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
 });
 
 // AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
-// 2.props属性
+
+/* 2.props属性 */
 
 class Greeting extends Component {
   render() {
@@ -127,4 +128,246 @@ class BlinkApp extends Component {
   }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
+// AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
+
+/* 4.style */
+
+class LotsOfStyles extends Component {
+  render() {
+    return (
+      <View>
+        <Text style={stylesSheet.red}>just red</Text>
+        <Text style={stylesSheet.bigblue}>just bigblue</Text>
+        <Text style={[stylesSheet.bigblue, stylesSheet.red]}>bigblue, then red</Text>
+        <Text style={[stylesSheet.red, stylesSheet.bigblue]}>red, then bigblue</Text>
+      </View>
+
+    );
+  }
+}
+
+const stylesSheet = StyleSheet.create({
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30
+  },
+  red: {
+    color: 'red'
+  }
+});
+
+// AppRegistry.registerComponent('AwesomeProject', () => LotsOfStyles);
+
+/* width and height */
+
+class FixedDimensionBasics extends Component {
+  render() {
+    return (
+      <View>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'powderblue'
+        }}/>
+
+        <View
+          style={{
+          width: 100,
+          height: 100,
+          backgroundColor: 'skyblue'
+        }}/>
+
+        <View
+          style={{
+          width: 150,
+          height: 150,
+          backgroundColor: 'steelblue'
+        }}/>
+      </View>
+    );
+  }
+}
+
+// AppRegistry.registerComponent('AwesomeProject', () => FixedDimensionBasics);
+
+class FixedDimensionBasics2 extends Component {
+  render() {
+    return (
+      <View style={{
+        flex: 1
+      }}>
+        <View
+          style={{
+          flex: 1,
+          backgroundColor: 'powderblue'
+        }}/>
+
+        <View
+          style={{
+          flex: 2,
+          backgroundColor: 'skyblue'
+        }}/>
+
+        <View
+          style={{
+          flex: 3,
+          backgroundColor: 'steelblue'
+        }}/>
+      </View>
+    );
+  }
+}
+
+// AppRegistry.registerComponent('AwesomeProject', () => FixedDimensionBasics2);
+
+/* Flex direction 决定布局的主轴 */
+class FlexDirectionBasics extends Component {
+  render() {
+    return (
+      <View style={{
+        flex: 1,
+        flexDirection: 'row-reverse'
+      }}>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'powderblue'
+        }}/>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'skyblue'
+        }}/>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'steelblue'
+        }}/>
+      </View>
+    );
+  }
+};
+
+// AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
+
+/* justifyContent  决定其子元素沿着主轴的排列方式 */
+
+class JustifyContentBasics extends Component {
+  render() {
+    return (
+      <View
+        style={{
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+      }}>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'powderblue'
+        }}/>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'skyblue'
+        }}/>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'steelblue'
+        }}/>
+      </View>
+    );
+  }
+};
+
+// AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
+
+/* alignItems 决定其子元素沿着次轴(与主轴垂直的轴，比如若主轴为row，则次轴为column)的排列方式 */
+
+class AlignItemsBasics extends Component {
+  render() {
+    return (
+      <View
+        style={{
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'powderblue'
+        }}/>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'skyblue'
+        }}/>
+        <View
+          style={{
+          width: 50,
+          height: 50,
+          backgroundColor: 'steelblue'
+        }}/>
+      </View>
+    );
+  }
+}
+
+// AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
+
+/* TextInput */
+import {TextInput} from 'react-native';
+
+class PizzTranslator extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      text: ''
+    };
+  }
+
+  render() {
+    return (
+      <View style={{
+        padding: 10
+      }}>
+        <TextInput
+          style={{
+          height: 40
+        }}
+          placeholder="Type here to translate!"
+          onChangeText={(text) => this.setState({text})}/>
+
+        <Text style={{
+          padding: 10,
+          fontSize: 42
+        }}>
+          {this
+            .state
+            .text
+            .split(' ')
+            .map((word) => word && '🍕')
+            .join(' ')}
+        </Text>
+      </View>
+
+    );
+  }
+}
+
+// AppRegistry.registerComponent('AwesomeProject', () => PizzTranslator);
+
+/** ScrollView */
