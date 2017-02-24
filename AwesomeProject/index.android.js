@@ -371,3 +371,65 @@ class PizzTranslator extends Component {
 // AppRegistry.registerComponent('AwesomeProject', () => PizzTranslator);
 
 /** ScrollView */
+
+import {ScrollView} from 'react-native'
+
+class IScrolledDownAndWhatHappenednextShockedMe extends Component {
+  render() {
+    return (
+      <ScrollView>
+        <Text style={{
+          fontSize: 16
+        }}>Scroll me plz</Text>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+
+        <Text style={{
+          fontSize: 16
+        }}>If you like</Text>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+
+        <Text style={{
+          fontSize: 16
+        }}>Scrolling down</Text>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+
+        <Text style={{
+          fontSize: 16
+        }}>What's the best</Text>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+
+        <Text style={{
+          fontSize: 16
+        }}>React native</Text>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+        <Image source={require('./img/favicon.png')}/>
+
+      </ScrollView>
+    );
+  }
+}
+
+// AppRegistry.registerComponent('AwesomeProject', () =>
+// IScrolledDownAndWhatHappenednextShockedMe);
+
+import {ListView} from 'react-native'
+
+class ListViewBasics extends Component {
+  constructor(props) {
+    super(props)
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 != r2
+    });
+  }
+}
+
+AppRegistry.registerComponent('AwesomeProject', () => ListViewBasics);
