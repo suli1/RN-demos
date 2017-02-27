@@ -432,4 +432,14 @@ class ListViewBasics extends Component {
   }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => ListViewBasics);
+// AppRegistry.registerComponent('AwesomeProject', () => ListViewBasics);
+
+import SimpleNavigationApp from './SampleNavigation';
+
+class YoDawgApp extends Component {
+  render() {
+    return (<SimpleNavigationApp/>)
+  }
+}
+
+AppRegistry.registerComponent('AwesomeProject', () => YoDawgApp);
